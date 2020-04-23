@@ -81,7 +81,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
         @Override
         public int getItemCount() {
-            return items.size();
+            return itemSearchs.size();
         }
 
     @Override
@@ -112,8 +112,8 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 imageFavorite.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isChecked = items.get(getAdapterPosition()).isSelected;
-                        items.get(getAdapterPosition()).setSelected(!isChecked);
+                        boolean isChecked = itemSearchs.get(getAdapterPosition()).isSelected;
+                        itemSearchs.get(getAdapterPosition()).setSelected(!isChecked);
                         notifyDataSetChanged();
                     }
                 });
@@ -130,7 +130,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            if (showFavorite == true){
+            if (showFavorite == false){
                 itemSearchs.clear();
                 final FilterResults results = new FilterResults();
                 if(constraint.length() == 0 || constraint == null){
